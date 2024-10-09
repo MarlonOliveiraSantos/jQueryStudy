@@ -1,0 +1,32 @@
+body {
+    background-color: #f3a033;
+    text-align: center;
+}
+
+h1 {    
+    font-size: 2em;
+}
+
+#interface {
+    background-color: #fff67f;
+    padding: 15px;
+    margin: auto;
+    width: 500px;  
+    border-radius: 10px;
+    text-align: center;
+}
+
+#buttons button{
+    margin: 10px;
+    background-color: hwb(0 19% 7%);
+}
+
+div {
+    padding: 10px;
+}
+
+input {
+    width: 60px;
+    background-color: hsl(46, 93%, 42%);
+}
+

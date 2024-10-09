@@ -4,47 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora Básica</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script>
-        // Em jQuery, sem o $(document).ready(() =>{} a lógica será executada antes do DOCUMENT carregar, então não funcionará, o ready() garante que o documento seja carregado por completo para que o código possa ser executado corretamente
-        $(document).ready(() => {
-            $("#btnSomarjq").click(() => {
-                let v1 = parseInt($("#v1").val())
-                let v2 = parseInt($("#v2").val())
-                let soma = v1 + v2
-                $("#res").val(soma)
-            })
-        })
-        
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 
-    </script>
 </head>
 
 <body>
-    <div id="calc">
-        <label for="">Valor 1</label>
-        <input type="text" id="v1" value="0">
-        <br />
-        <label for="">Valor 2</label>
-        <input type="text" id="v2" value="0">
-        <br />
-        <label for="">Resultado</label>
-        <input type="text" id="res" value="0">
-        <br />
-        <button id="btnSomarjs">Somar JavaScript</button>
-        <button id="btnSomarjq">Somar jQuery</button>
-    </div>
+    <section id="title">
+        <h1>Calculadora Básica com jQuery</h1>
+    </section>
+    <section id="interface">
+        <div id="input">        
+            <label for="">Valor 1:</label>
+            <input type="text" id="v1" value="0">
+            <label for="">Valor 2:</label>
+            <input type="text" id="v2" value="0">       
+            <label for="">Resultado:</label>
+            <input type="text" id="res">
+            
+        </div>
+        <div id="buttons">
+            <button id="btnSomar">Somar</button>
+            <button id="btnDividir">Dividir</button>
+            <button id="btnMultiplicar">Multiplicar</button>
+            <button id="btnSubtrair">Subtrair</button>
+        </div>
+    </section>
 
     <script>
-        // Em javascript
-        let btnSomarjs = document.querySelector("#btnSomarjs").addEventListener("click", () => {
-            let v1 = document.querySelector("#v1").value
-            let v2 = document.querySelector("#v2").value
-            let soma = parseInt(v1) + parseInt(v2)
-            let res = document.querySelector("#res").value = soma
-            // uma forma mais reduzida porém com legibilidade horrível é "let res = document.querySelector("#res").value = parseInt(document.querySelector("#v2").value) + parseInt(document.querySelector("#v1").value)"
+        // Em jQuery, sem o $(document).ready(() =>{} a lógica será executada antes do DOCUMENT carregar, então não funcionará, o ready() garante que o documento seja carregado por completo para que o código possa ser executado corretamente       
+        $(document).ready(() => {
+            //Soma
+            $("#btnSomar").click(() => {
+                var v1 = parseInt($("#v1").val())
+                var v2 = parseInt($("#v2").val())
+                let soma = v1 + v2
+                $("#res").val(soma)
+            })
+            //Divisão
+            $("#btnDividir").click(() => {
+                let v1 = parseInt($("#v1").val())
+                let v2 = parseInt($("#v2").val())
+                divisao = v1 / v2
+                $("#res").val(divisao)
+            })
+            //Multiplicação
+            $("#btnMultiplicar").click(() => {
+                let v1 = parseInt($("#v1").val())
+                let v2 = parseInt($("#v2").val())
+                multiplicar = v1 * v2
+                $("#res").val(multiplicar)
+            })
+            //Subtração
+            $("#btnSubtrair").click(() => {
+                let v1 = parseInt($("#v1").val())
+                let v2 = parseInt($("#v2").val())
+                subtrair = v1 - v2
+                $("#res").val(subtrair)
+            })
         })
     </script>
 </body>
