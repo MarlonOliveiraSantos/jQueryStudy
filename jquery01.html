@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Básica</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -16,14 +16,14 @@
         <h1>Calculadora Básica com jQuery</h1>
     </section>
     <section id="interface">
-        <div id="input">        
+        <div id="input">
             <label for="">Valor 1:</label>
             <input type="text" id="v1" value="0">
             <label for="">Valor 2:</label>
-            <input type="text" id="v2" value="0">       
+            <input type="text" id="v2" value="0">
             <label for="">Resultado:</label>
             <input type="text" id="res">
-            
+
         </div>
         <div id="buttons">
             <button id="btnSomar">Somar</button>
@@ -36,34 +36,32 @@
     <script>
         // Em jQuery, sem o $(document).ready(() =>{} a lógica será executada antes do DOCUMENT carregar, então não funcionará, o ready() garante que o documento seja carregado por completo para que o código possa ser executado corretamente       
         $(document).ready(() => {
-            //Soma
-            $("#btnSomar").click(() => {
+            function calcular(operacao) {
                 var v1 = parseInt($("#v1").val())
                 var v2 = parseInt($("#v2").val())
-                let soma = v1 + v2
-                $("#res").val(soma)
-            })
-            //Divisão
-            $("#btnDividir").click(() => {
-                let v1 = parseInt($("#v1").val())
-                let v2 = parseInt($("#v2").val())
-                divisao = v1 / v2
-                $("#res").val(divisao)
-            })
-            //Multiplicação
-            $("#btnMultiplicar").click(() => {
-                let v1 = parseInt($("#v1").val())
-                let v2 = parseInt($("#v2").val())
-                multiplicar = v1 * v2
-                $("#res").val(multiplicar)
-            })
-            //Subtração
-            $("#btnSubtrair").click(() => {
-                let v1 = parseInt($("#v1").val())
-                let v2 = parseInt($("#v2").val())
-                subtrair = v1 - v2
-                $("#res").val(subtrair)
-            })
+                let resultado
+
+                switch (operacao) {
+                    case '+':
+                        resultado = v1 + v2
+                        break
+                    case '-':
+                        resultado = v1 - v2
+                        break
+                    case '*':
+                        resultado = v1 * v2
+                        break
+                    case '/':
+                        resultado = v1 / v2
+                        break
+                }
+                $("#res").val(resultado)
+            }
+
+            $("#btnSomar").click(() => calcular('+'))
+            $("#btnSubtrair").click(() => calcular('-'))
+            $("#btnMultiplicar").click(() => calcular('*'))
+            $("#btnDividir").click(() => calcular('/'))
         })
     </script>
 </body>
