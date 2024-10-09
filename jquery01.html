@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        // Em jQuery, sem o $(document).ready(() =>{} a lógica será executada antes do DOCUMENT carregar, então não funcionará, o ready() garante que o documento seja carregado por completo para que o código possa ser executado corretamente
+        $(document).ready(() => {
+            $("#btnSomarjq").click(() => {
+                let v1 = parseInt($("#v1").val())
+                let v2 = parseInt($("#v2").val())
+                let soma = v1 + v2
+                $("#res").val(soma)
+            })
+        })
+        
+
+    </script>
+</head>
+
+<body>
+    <div id="calc">
+        <label for="">Valor 1</label>
+        <input type="text" id="v1" value="0">
+        <br />
+        <label for="">Valor 2</label>
+        <input type="text" id="v2" value="0">
+        <br />
+        <label for="">Resultado</label>
+        <input type="text" id="res" value="0">
+        <br />
+        <button id="btnSomarjs">Somar JavaScript</button>
+        <button id="btnSomarjq">Somar jQuery</button>
+    </div>
+
+    <script>
+        // Em javascript
+        let btnSomarjs = document.querySelector("#btnSomarjs").addEventListener("click", () => {
+            let v1 = document.querySelector("#v1").value
+            let v2 = document.querySelector("#v2").value
+            let soma = parseInt(v1) + parseInt(v2)
+            let res = document.querySelector("#res").value = soma
+            // uma forma mais reduzida porém com legibilidade horrível é "let res = document.querySelector("#res").value = parseInt(document.querySelector("#v2").value) + parseInt(document.querySelector("#v1").value)"
+        })
+    </script>
+</body>
+
+</html>
